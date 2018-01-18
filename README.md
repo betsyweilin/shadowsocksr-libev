@@ -484,3 +484,41 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+
+
+1. git clone
+
+2.编译和安装
+[cpp] view plain copy
+
+    cd shadowsocks-libev  
+    sudo apt-get install --no-install-recommends build-essential autoconf libtool libssl-dev \  
+        gawk debhelper dh-systemd init-system-helpers pkg-config asciidoc xmlto apg libpcre3-dev  
+    dpkg-buildpackage -b -us -uc -i  
+    cd ..  
+    sudo dpkg -i shadowsocks-libev*.deb  
+
+
+注意修改 src/http.h src/tls.h　+extern　防止编译错误
+
+
+３．运行　
+
+ss-local  -c config.json，　文件如下：
+
+[cpp] view plain copy
+
+    {  
+        "server":"　　　　",  
+        "server_port":　,  
+        "local_port":　,  
+        "password":"　",  
+        "timeout":　,  
+        "method":"　",  
+        "protocol":"　",  
+        "obfs":"　",  
+        "obfsparam":"　" ,  
+        "group":"　",  
+        "local_address":"　　"  
+    }  
